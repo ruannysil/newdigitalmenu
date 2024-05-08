@@ -1,112 +1,307 @@
+"use client";
+
 import Image from "next/image";
+import imageHeader from "../../public/bg.svg";
+import colacolar from "../../public/cocacola.png";
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight, Info, MapPin } from "lucide-react";
+import { IoIosCheckmarkCircle, IoLogoWhatsapp } from "react-icons/io";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import {
+  MdAccessTimeFilled,
+  MdDeliveryDining,
+  MdOutlineCircle,
+} from "react-icons/md";
+import { GiPlainCircle } from "react-icons/gi";
+import { Separator } from "@/components/ui/separator";
+import { SiHomeassistantcommunitystore } from "react-icons/si";
+import { FaShoppingBag } from "react-icons/fa";
+import Header from "@/components/ui/header";
+import Footer from "@/components/ui/footer";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+  const [cart, setCart] = useState(0);
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
+  const handleAddOpenCartProduct = () => {
+    if (cart === 0) {
+      setCart(1);
+    }
+  };
+
+  const handleAddProduct = () => {
+    setCart((prevent) => prevent + 1);
+  }
+
+  const handleRemoveToProduct = () => {
+    if (cart <= 1) {
+      setCart(0);
+      return;
+    }
+    setCart((prevtRemove) => prevtRemove - 1);
+  };
+  return (
+    <main className="z-40 flex min-h-screen flex-col items-center justify-between">
+      <div className="fixed top-0 z-10 h-28 w-full bg-black">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src={imageHeader}
+          alt="image"
+          layout="fill"
+          objectFit="container"
+          objectPosition="center"
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <Header />
+      <ScrollArea className="left-0 right-0 mx-auto my-2  mb-[4rem] mt-[11rem] flex min-h-[calc(100vh-12rem)] w-full max-w-6xl flex-1 flex-col gap-3 overflow-y-auto p-4 px-4">
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <div>
+              <h1 className="text-start text-xl font-bold">Bebidas</h1>
+              <div className="grid gap-3 md:grid-cols-2">
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
+                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
+                    <Image
+                      src={colacolar}
+                      alt="image"
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
+                    <strong>Cola cola 2 litros</strong>
+                    <span>Cola cola 2 litros</span>
+                    <strong>R$ 12,00</strong>
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </AlertDialogTrigger>
+          {cart > 0 && (
+            <AlertDialogContent className="p-3 w-[90%]">
+            <Image
+              src={colacolar}
+              alt="image"
+              className="h-full w-full items-center justify-between"
+            />
+            <AlertDialogHeader>
+              <AlertDialogTitle className="flex items-start">
+                Coca-cola 2L
+              </AlertDialogTitle>
+              <AlertDialogDescription className="flex items-start text-left">
+                A Coca-Cola Original é o refrigerante mais tradicional e
+                consumido no mundo. Possui sabor inconfundível e único.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <div>
+              <Label>alguma observação sobre o pedido ?</Label>
+              <Textarea
+                className="mt-1 w-full rounded-md border bg-gray-100 p-2 outline-none"
+                placeholder="ex: retire o alface"
+              />
+            </div>
+            <AlertDialogFooter className="flex">
+              <div className="flex w-full justify-between">
+                <div className="flex items-center gap-2 border-transparent">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={handleRemoveToProduct}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <span>{cart}</span>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={handleAddProduct}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+                <AlertDialogAction className="flex bg-green-600 px-6 hover:bg-green-900">
+                  Adicionar R$ 12,00
+                </AlertDialogAction>
+              </div>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+          )}
+        </AlertDialog>
+      </ScrollArea>
+      <div className="fixed bottom-0 z-40 w-full items-center justify-between bg-black pt-2">
+        <Footer />
       </div>
     </main>
   );
