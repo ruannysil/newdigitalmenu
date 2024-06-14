@@ -62,10 +62,10 @@ export default function Home() {
   }
 
   const handleRemoveToProduct = () => {
-    if (cart <= 1) {
-      setCart(0);
-      return;
-    }
+    // if (cart <= 1) {
+    //   setCart(0);
+    //   return;
+    // }
     setCart((prevtRemove) => prevtRemove - 1);
   };
   return (
@@ -102,150 +102,7 @@ export default function Home() {
                     <strong>R$ 12,00</strong>
                   </div>
                 </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 mt-3 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
-                <Button variant="outline" className="mb-3 flex items-center justify-between p-4 h-40" onClick={handleAddOpenCartProduct}>
-                  <div className="relative h-[120px] w-[100px] overflow-hidden  rounded-md lg:h-[110px] lg:w-[110px]">
-                    <Image
-                      src={colacolar}
-                      alt="image"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="ml-3 flex flex-col gap-2 text-sm md:text-xl">
-                    <strong>Cola cola 2 litros</strong>
-                    <span>Cola cola 2 litros</span>
-                    <strong>R$ 12,00</strong>
-                  </div>
-                </Button>
+                
               </div>
             </div>
           </AlertDialogTrigger>
@@ -298,6 +155,7 @@ export default function Home() {
             </AlertDialogFooter>
           </AlertDialogContent>
           )}
+
         </AlertDialog>
       </ScrollArea>
       <div className="fixed bottom-0 z-40 w-full items-center justify-between bg-black pt-2">
